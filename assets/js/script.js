@@ -1,4 +1,10 @@
 "use strict";
+// perloader
+
+window.addEventListener("load", () => {
+  document.querySelector(".loading").classList.add("loading--hidden");
+});
+
 
 /**
  * add event listener on multiple elements
@@ -134,21 +140,6 @@ for (let i = 0, len = accordions.length; i < len; i++) {
 }
 
 // my code
-let valueDisplays = document.querySelectorAll(".num");
-let interval = 10000;
-
-valueDisplays.forEach((valueDisplay) => {
-  let startValue = 0;
-  let endValue = parseInt(valueDisplay.getAttribute("data-val"));
-  let duration = Math.floor(interval / endValue);
-  let counter = setInterval(function () {
-    startValue += 1;
-    valueDisplay.textContent = startValue;
-    if (startValue == endValue) {
-      clearInterval(counter);
-    }
-  }, duration);
-});
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
